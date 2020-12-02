@@ -1,0 +1,44 @@
+<div class="header">
+  <span>
+    <span><img src="https://wsp.kbtu.kz/VAADIN/themes/r5/img/button/home.png" alt="home"></span>
+    <span class="news-title">Новости</span>
+  </span>
+</div>
+<div>
+  <div class="begin">
+    <p class="date">DECEMBER 2, 2020   14:05</p>
+    <span class="blue">Переход на кампусную карту!</span>
+    <p class="header-text">Переход на кампусную карту!</p>
+  </div>
+  <div class="main">
+    <div class="text">Деканат НОЦМиК сообщает о переносе лекции по дисциплине "WEB-программирование" ассистент-профессора
+      Алтайбек А. А. <br> согласно нижеследующей таблице.
+    </div>
+    <div class="btn">
+      <button (click)="show()">
+        Добавить комментарий
+      </button>
+    </div>
+    <div *ngIf="shouldShow">
+      <div class="modal">
+        <div class="modal__backdrop">
+          <div class="area">
+            <h5>Добавить комментарий</h5>
+            <textarea [(ngModel)]="comment"  rows="10" cols="90" ></textarea>
+            <div (click)="show()">
+              <span><button (click)="sendData()" class="btm">Сохранить</button></span>
+              <span><button class="btm">Отмена</button></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comments">
+      <div *ngFor="let comment of comments">
+        <h5>{{comment.text}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
