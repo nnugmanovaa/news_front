@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 import {CommentServiceService} from './service/comment-service.service';
 import {Comment} from './model/comment';
 
@@ -7,8 +7,9 @@ import {Comment} from './model/comment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  constructor(private service: CommentServiceService) {}
+export class AppComponent implements OnInit {
+  constructor(private service: CommentServiceService,
+              private elementRef: ElementRef) {}
   title = 'news-app';
   shouldShow = false;
   comment: string;
@@ -32,7 +33,6 @@ export class AppComponent implements OnInit{
   sendData() {
     this.service.add(this.comment).subscribe(perf => {
       console.log('Thank you, for using VN!');
-      window.location.reload();
     });
   }
 }
